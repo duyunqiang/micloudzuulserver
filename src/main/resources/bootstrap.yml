@@ -1,0 +1,15 @@
+spring:
+  config:
+    name: micloudzuul
+  application:
+    name: micloudzuul
+  cloud:
+    config:
+      failFast: true
+      discovery:
+        enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URI:http://${EUREKA_SERVER_USER:}:${EUREKA_SERVER_PASS:}@localhost:8761}/eureka/
