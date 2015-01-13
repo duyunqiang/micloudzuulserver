@@ -1,15 +1,18 @@
 # Zuul Server
 
-Run this app as a normal Spring Boot app. If you run from this project 
-it will be on port 8765 (per the `application.yml`). Also run the
-[stores](https://github.com/spring-cloud-samples/customers-stores/tree/master/rest-microservices-store) 
-and [customers](https://github.com/spring-cloud-samples/customers-stores/tree/master/rest-microservices-customers) 
-samples from the [customer-stores](https://github.com/spring-cloud-samples/customers-stores) 
-sample.  
+Run this app as a normal Spring Boot app. If you run from this project
+it will be on port 8765 (per the `application.yml`).
 
-You should then be able to view json content from 
-`http://localhost:8765/stores` and `http://localhost:8765/customers` which are
-configured in `application.yml` as proxy routes.
+First run the [micloudconfigserver](https://github.com/MindsIgnited/micloudconfigserver)
+Next run the [micloudeurekaserver](https://github.com/MindsIgnited/micloudeurekaserver)
+Then run [micloudrestbase](https://github.com/MindsIgnited/micloudrestbase) which holds the rest service.
+Lastly run this project.  It will pick up all possible services via Eureka and gets its config via ConfigService.
+
+You should then be able to view json content from
+`http://localhost:8765/micloudrestbase/devices/search/findByModel?model=MontaVista`
+and
+`http://localhost:8765/micloudrestbase/devices/1`
+which forwards to the `micloudrestbase` service, with the remaining url. The service is found via eureka discovery.
 
 
 ---
