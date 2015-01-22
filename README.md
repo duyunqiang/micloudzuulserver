@@ -1,13 +1,33 @@
 # Zuul Server
 
+---
+
 Run this app as a normal Spring Boot app. If you run from this project
-it will be on port 8765 (per the `application.yml`).
+it will be on port 8765 (per the `application.yml` or start.sh).
+
+TO MAKE THINGS EASIER I ADDED A START UP SCRIPT THAT CAN BE USED FOR DEVELOPMENT.
+You can run the ```./start.sh``` script and if you want to debug use ```./start.sh debug```.
+
+IF YOU WANT TO DEBUG:
+    In Intellij open the toolbar and select Run --> Edit Configurations
+    Then you will want to add a new configuration, select + --> Remote
+    In the new Remote window you can name the configuration something useful
+    Next under Settings, set Transport: Socket, Debugger Mode: Attach, Host: localhost, Port: 5007 (port the start.sh script uses)
+
+---
 
 First run the [micloudconfigserver](https://github.com/MindsIgnited/micloudconfigserver)
+
 Next run the [micloudeurekaserver](https://github.com/MindsIgnited/micloudeurekaserver)
+
 Then run [micloudrestbase](https://github.com/MindsIgnited/micloudrestbase) which holds the rest service.
+
 Then ensure that you have Keycloak intalled locally, running on 127.0.0.1. Please also upload the oauth2-test-realm.json under Add Realm in Keycloak.
+*TIP:* give it about 2 minutes to allow all services to be fully up with eureka. needs three heartbeats @ 30 sec intervals. NOTE: still looking at how we can get it to register with Zuul when it comes up on eureka dynamically.
+
 Lastly run this project.  It will pick up all possible services via Eureka and gets its config via ConfigService.
+
+---
 
 You should then be able to view json content from
 `http://127.0.0.1:8765/micloudrestbase/devices/search/findByModel?model=MontaVista`
@@ -15,6 +35,10 @@ and
 `http://127.0.0.1:8765/micloudrestbase/devices/1`
 which forwards to the `micloudrestbase` service, with the remaining url. The service is found via eureka discovery.
 
+You can also run the [micloudhystrixserver](https://github.com/MindsIgnited/micloudhystrixserver) as a service and hit it via this url:
+`http://127.0.0.1:8765/micloudhystrix`
+NOTE: this doesn't fully work right now since the dash, as is, doesn't play well with a proxy.
+It can all be fixed in hystrix dash project or static resources can be served via the proxy.
 
 You will just need to register a new user, allow access to the services and you should get your response.
 
@@ -36,15 +60,6 @@ easy to user version :
 
 ```curl -v -H "Authorization: Bearer <token here>" -XGET "http://127.0.0.1:8089/devices/search/findByModel?model=MontaVista"```
 
-
 ---
-TO MAKE THINGS EASIER I ADDED A START UP SCRIPT THAT CAN BE USED FOR DEVELOPMENT.
-You can run the ```./start.sh``` script and if you want to debug use ```./start.sh debug```.
 
-IF YOU WANT TO DEBUG:
-    In Intellij open the toolbar and select Run --> Edit Configurations 
-    Then you will want to add a new configuration, select + --> Remote
-    In the new Remote window you can name the configuration something useful
-    Next under Settings, set Transport: Socket, Debugger Mode: Attach, Host: localhost, Port: 5007 (port the start.sh script uses)
-
----
+End. :)
