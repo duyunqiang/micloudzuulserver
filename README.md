@@ -21,6 +21,12 @@ First run the [micloudconfigserver](https://github.com/MindsIgnited/micloudconfi
 Next run the [micloudeurekaserver](https://github.com/MindsIgnited/micloudeurekaserver)
 
 Then run [micloudrestbase](https://github.com/MindsIgnited/micloudrestbase) which holds the rest service.
+NOTE: This is the database configuration for this service:
+
+      url: jdbc:mysql://localhost:3306/restbase
+      username: root
+      password: pass79
+      driver-class-name: com.mysql.jdbc.Driver
 
 Then ensure that you have Keycloak intalled locally, running on 127.0.0.1. Please also upload the oauth2-test-realm.json under Add Realm in Keycloak.
 *TIP:* give it about 2 minutes to allow all services to be fully up with eureka. needs three heartbeats @ 30 sec intervals. NOTE: still looking at how we can get it to register with Zuul when it comes up on eureka dynamically.
