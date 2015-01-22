@@ -6,11 +6,13 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.security.oauth2.sso.EnableOAuth2Sso;
 
 /**
- * Created by sgibb on 7/11/14.
+ *
  */
 @SpringBootApplication
 @EnableZuulProxy
-//@EnableOAuth2Sso
+@EnableOAuth2Sso
+/** to make an api gateway we use the below instead of @EnableOauth2Sso **/
+//@EnableOAuth2Resource
 public class ZuulServerApplication {
 
     public static void main(String[] args) {
