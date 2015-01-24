@@ -43,8 +43,6 @@ which forwards to the `micloudrestbase` service, with the remaining url. The ser
 
 You can also run the [micloudhystrixserver](https://github.com/MindsIgnited/micloudhystrixserver) as a service and hit it via this url:
 `http://127.0.0.1:8765/micloudhystrix`
-NOTE: this doesn't fully work right now since the dash, as is, doesn't play well with a proxy.
-It can all be fixed in hystrix dash project or static resources can be served via the proxy.
 
 You will just need to register a new user, allow access to the services and you should get your response.
 
