@@ -42,7 +42,7 @@ and
 which forwards to the `micloudrestbase` service, with the remaining url. The service is found via eureka discovery.
 
 You can also run the [micloudhystrixserver](https://github.com/MindsIgnited/micloudhystrixserver) as a service and hit it via this url:
-`http://127.0.0.1:8765/micloudhystrix`
+`http://127.0.0.1:8765/micloudhystrix/` <-- We need the extra / so that it goes to the root mapping - figure out how to allow it without the extra /
 
 You will just need to register a new user, allow access to the services and you should get your response.
 
