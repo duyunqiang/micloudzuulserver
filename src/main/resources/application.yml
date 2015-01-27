@@ -1,0 +1,41 @@
+info:
+  component: Zuul Server
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  sensitive: false
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.boot: INFO
+    org.springframework.cloud.security.oauth2: DEBUG
+    #com.netflix.discovery: 'OFF'
+    ROOT: INFO
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: /admin/info
+    healthCheckUrlPath: /admin/health
+
+#security:
+#  ignored: /favicon.ico,/**/*.html,/js/**,/css/**,/webjars/**
+#  sessions: ALWAYS
+
+management:
+  #security:
+  #  role: ADMIN
+  port: ${MGMT_SERVER_PORT:8766}
+
+server:
+  # moves the Spring Dispatch Servlet to a path below `/`
+  servletPath: /
+  port: ${SERVER_PORT:8765}
+# sets the error path to use the Dispatch Servlet to resolve the error view
+error:
+   path: /error

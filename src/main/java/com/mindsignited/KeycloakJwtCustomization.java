@@ -2,14 +2,14 @@ package com.mindsignited;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.cloud.security.oauth2.resource.JwtAccessTokenConverterConfigurer;
+/*import org.springframework.cloud.security.oauth2.resource.JwtAccessTokenConverterConfigurer;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.OAuth2Request;
 import org.springframework.security.oauth2.provider.token.AccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;*/
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -20,7 +20,7 @@ import java.util.*;
  */
 @RefreshScope
 @Component
-public class KeycloakJwtCustomization implements JwtAccessTokenConverterConfigurer, AccessTokenConverter {
+public class KeycloakJwtCustomization{}/* implements JwtAccessTokenConverterConfigurer, AccessTokenConverter {
 
     final String KEYCOAK_CLIENT_ID = "aud";
 
@@ -128,4 +128,4 @@ public class KeycloakJwtCustomization implements JwtAccessTokenConverterConfigur
         return new OAuth2Authentication(request, user);
     }
 
-}
+}*/

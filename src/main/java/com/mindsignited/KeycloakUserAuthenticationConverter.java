@@ -1,6 +1,6 @@
 package com.mindsignited;
 
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+/*import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -10,12 +10,12 @@ import org.springframework.util.StringUtils;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Map;*/
 
 /**
  * Created by nicholaspadilla on 1/21/15.
  */
-public class KeycloakUserAuthenticationConverter implements UserAuthenticationConverter {
+public class KeycloakUserAuthenticationConverter{}/* implements UserAuthenticationConverter {
 
     public static final String RESOURCE_ACCESS = "resource_access";
 
@@ -26,13 +26,13 @@ public class KeycloakUserAuthenticationConverter implements UserAuthenticationCo
 
     private String currentResourceId;
 
-    /**
+    **
      * Default value for authorities if an Authentication is being created and the input has no data for authorities.
      * Note that unless this property is set, the default Authentication created by {@link #extractAuthentication(java.util.Map)}
      * will be unauthenticated.
      *
      * @param defaultAuthorities the defaultAuthorities to set. Default null.
-     */
+     *
     public void setDefaultAuthorities(String[] defaultAuthorities) {
         this.defaultAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList(StringUtils
                 .arrayToCommaDelimitedString(defaultAuthorities));
@@ -83,4 +83,4 @@ public class KeycloakUserAuthenticationConverter implements UserAuthenticationCo
     public void setCurrentResourceId(String currentResourceId) {
         this.currentResourceId = currentResourceId;
     }
-}
+}*/
